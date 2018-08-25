@@ -5,16 +5,11 @@ var guessesLeft = 8;
 var guessedLetter =[];
 var theRappers = ["kyle", "drake", "kanye","kendrick"];
 var displayWord = [];
+var answerupdate = [];
 
 
 
 // FUNCTIONS:
-
-
-function minusguess() {
-    num -= 1;
-    return num;
-}
 var ranWord = theRappers[Math.floor(Math.random() * theRappers.length)];
 
 // This for loop takes that random word generated and then counts
@@ -24,79 +19,82 @@ for (let i = 0; i < ranWord.length; i++) {
     var gotdiv = document.getElementById("daWord");
     gotdiv.innerHTML = displayWord; 
     
-
+}
 
 // The user clicks a key and that key is checked if it is a character within the displayWord randomly generated with the above for loop.
 // I want this for loop to check my random word one index at a time and if that index matches the users key pressed then take that index and match it with the index of the displayword.
 
 document.onkeyup = function(event) {
-    var n = ranWord.includes(event.key, 0)
-        if (n == true) {
-            for (var j = 0; j < ranWord.length; j++) {
-                if (ranWord[j] = event.key) {
-                    displayWord[j] = event.key;
-                    var gei = document.getElementById("daWord");
-                    gei.textContent[j] = event.key;
-                    console.log("Trae");
-                }
-                
+    var userGuess = event.key;
+    var matched = false;
+    for (let j = 0; j < ranWord.length; j++) {
+        var char = ranWord[j];
+        if (char == userGuess) {
+            matched = true;
+            answerupdate[j] = userGuess;
 
-                
-
-                
-            }
-            
-        
         }
-        else if (n == false) {
-            var takeid = document.getElementById("guessedAlready");
-            takeid.innerHTML += event.key;
-            guessesLeft--;
-            }
-            
-
-            
         
-
-
-            
+    }
+    if (matched == true) {
+    var newword = document.getElementById("daWord");
+    var winz = document.getElementById("ws")
+    newword.innerHTML = answerupdate;
+     if (if answerupdate is full then player wins) {       //what can be counted to tell the program when the user has won
+        wins++;
+        winz.innerHTML = wins;
+    }
+        
+    }
+    else if (matched == false) {
+        var takeid = document.getElementById("guessedAlready");
+        var guessleft = document.getElementById("guesses")
+        var lose = document.getElementById("ls")
+        takeid.innerHTML += event.key;
+        guessesLeft--;
+        guessleft.innerHTML = guessesLeft;
+        if (guessesLeft == 0) {
+            console.log("reset");
+            losses++;
+            ls.innerHTML = losses;
             
         }
-    
+    }
+
 }
+//     var n = ranWord.includes(event.key, 0)
+//     var correctarray = [];
+//         if (n == true) {
+//             for (var j = 0; j < ranWord.length; j++) {
+//                 if (displayWord[j] ==)
+//                  {
+                
+//             }
+                
 
+                
 
-
-
-
- 
-
-
-    
-    
-
-
-
-
-    
-
-
-// document.onkeyup() = function(event) {
-//     if (event.key === displayWord[i].toLowerCase) {
-            // diplayWord[i] = event.key;
+                
+//             }
+            
         
-//     }
-    // else (event.key != displayWord[i]){
-        // add to += guessedLetters
-        // 
-    // }
+//         }
+//         else if (n == false) {
+//             var takeid = document.getElementById("guessedAlready");
+//             takeid.innerHTML += event.key;
+//             guessesLeft--;
+//             }
+            
+
+            
+        
+
+
+            
+            
+//         }
     
 // }
-
-
-
-
-
 
     // When key is clicked add that key to the guesed letters var and change guesses left -1 .
 
