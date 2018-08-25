@@ -56,9 +56,9 @@ h4 {
 
 /* The word */
 
-.daWord {
+#daWord {
     text-align: center;
-    
+    font-weight: bold;
 }
 
 

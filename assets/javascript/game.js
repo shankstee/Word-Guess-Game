@@ -1,21 +1,71 @@
 var wins = 0;
 var losses = 0;
+var num = 8;
+var guessesLeft = 8;
 var guessedLetter =[];
-var theRappers = ["Kyle", "Drake", "Kanye","Kendrick"];
-var displayWord = "";
+var theRappers = ["kyle", "drake", "kanye","kendrick"];
+var displayWord = [];
+
 
 
 // FUNCTIONS:
+
+
+function minusguess() {
+    num -= 1;
+    return num;
+}
 var ranWord = theRappers[Math.floor(Math.random() * theRappers.length)];
 
 // This for loop takes that random word generated and then counts
-//  the length and displays the _ for each character within that length.
+//  the length and displays the _ for each character within a empty var string, then grabs element on html by ID and changes it with innerHTML.
 for (let i = 0; i < ranWord.length; i++) {
     displayWord += "_ ";
     var gotdiv = document.getElementById("daWord");
+    gotdiv.innerHTML = displayWord; 
+    
 
-    gotdiv.innerHTML = displayWord;  
+
+// The user clicks a key and that key is checked if it is a character within the displayWord randomly generated with the above for loop.
+// I want this for loop to check my random word one index at a time and if that index matches the users key pressed then take that index and match it with the index of the displayword.
+
+document.onkeyup = function(event) {
+    var n = ranWord.includes(event.key, 0)
+        if (n == true) {
+            for (var j = 0; j < ranWord.length; j++) {
+                if (ranWord[j] = event.key) {
+                    displayWord[j] = event.key;
+                    var gei = document.getElementById("daWord");
+                    gei.textContent[j] = event.key;
+                    console.log("Trae");
+                }
+                
+
+                
+
+                
+            }
+            
+        
+        }
+        else if (n == false) {
+            var takeid = document.getElementById("guessedAlready");
+            takeid.innerHTML += event.key;
+            guessesLeft--;
+            }
+            
+
+            
+        
+
+
+            
+            
+        }
+    
 }
+
+
 
 
 
