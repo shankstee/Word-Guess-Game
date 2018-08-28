@@ -15,9 +15,12 @@ var ranWord = theRappers[Math.floor(Math.random() * theRappers.length)];
 // This for loop takes that random word generated and then counts
 //  the length and displays the _ for each character within a empty var string, then grabs element on html by ID and changes it with innerHTML.
 for (let i = 0; i < ranWord.length; i++) {
-    displayWord += "_ ";
+    displayWord.push("_ ");
     var gotdiv = document.getElementById("daWord");
     gotdiv.innerHTML = displayWord; 
+    answerupdate = displayWord;
+    console.log("trae");
+    
     
 }
 
@@ -32,6 +35,9 @@ document.onkeyup = function(event) {
         if (char == userGuess) {
             matched = true;
             answerupdate[j] = userGuess;
+            console.log(answerupdate);
+            console.log(userGuess);
+
 
         }
         
@@ -40,10 +46,10 @@ document.onkeyup = function(event) {
     var newword = document.getElementById("daWord");
     var winz = document.getElementById("ws")
     newword.innerHTML = answerupdate;
-     if (if answerupdate is full then player wins) {       //what can be counted to tell the program when the user has won
-        wins++;
-        winz.innerHTML = wins;
-    }
+     //if (if answerupdate is full then player wins) {       //what can be counted to tell the program when the user has won
+       // wins++;
+        //winz.innerHTML = wins;
+    //}
         
     }
     else if (matched == false) {
