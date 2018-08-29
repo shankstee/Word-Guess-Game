@@ -19,7 +19,7 @@ for (let i = 0; i < ranWord.length; i++) {
     var gotdiv = document.getElementById("daWord");
     gotdiv.innerHTML = displayWord; 
     answerupdate = displayWord;
-    console.log("trae");
+    
     
     
 }
@@ -35,8 +35,7 @@ document.onkeyup = function(event) {
         if (char == userGuess) {
             matched = true;
             answerupdate[j] = userGuess;
-            console.log(answerupdate);
-            console.log(userGuess);
+            
 
 
         }
@@ -60,14 +59,16 @@ document.onkeyup = function(event) {
         guessesLeft--;
         guessleft.innerHTML = guessesLeft;
         if (guessesLeft == 0) {
+            var lsss = document.getElementById('ls');
             console.log("reset");
             losses++;
-            ls.innerHTML = losses;
+            lsss.innerHTML = losses;
             
         }
     }
 
 }
+//   ANOTHER possible way to complete the display of underscores depending on the random word generated. 
 //     var n = ranWord.includes(event.key, 0)
 //     var correctarray = [];
 //         if (n == true) {
@@ -75,29 +76,14 @@ document.onkeyup = function(event) {
 //                 if (displayWord[j] ==)
 //                  {
                 
-//             }
-                
-
-                
-
-                
-//             }
-            
-        
+//             }          
+//             }       
 //         }
 //         else if (n == false) {
 //             var takeid = document.getElementById("guessedAlready");
 //             takeid.innerHTML += event.key;
 //             guessesLeft--;
 //             }
-            
-
-            
-        
-
-
-            
-            
 //         }
     
 // }
