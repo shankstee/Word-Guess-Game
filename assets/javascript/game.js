@@ -51,6 +51,12 @@ document.onkeyup = function(event) {
     //}
         
     }
+    if (answerupdate.join('') === ranWord) {
+        wins++;
+        document.getElementById("ws").innerHTML = wins;
+        console.log(wins);
+        
+    }
     else if (matched == false) {
         var takeid = document.getElementById("guessedAlready");
         var guessleft = document.getElementById("guesses")
